@@ -10,6 +10,9 @@
 
 uint8_t hex_char_to_val(char c);
 uint8_t *hex_to_bytes(char *hex, size_t *out_len);
+char *bytes_to_base64(const uint8_t *bytes, size_t len);
+
+int excercice_1();
 
 
 #endif
