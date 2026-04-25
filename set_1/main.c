@@ -1,8 +1,8 @@
-#include "EX_1.h"
+#include "EX_2.h"
 
 int main(){
 
-  excercice_1();
+  challenge_2();
   return 0;
   
 }
