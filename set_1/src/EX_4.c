@@ -16,7 +16,7 @@
 
 int challenge_4()
 {
-    FILE *fp = fopen("4.txt", "r");
+    FILE *fp = fopen("../docs/4.txt", "r");
     char line[64];
     float best_score = 0.0;
     uint8_t best_key = 0;
