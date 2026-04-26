@@ -55,7 +55,7 @@ char *bytes_to_base64(const uint8_t *bytes, size_t len)
 }
 
 
-int excercice_1(){
+int challenge_1(){
 
 
   size_t out_len;
