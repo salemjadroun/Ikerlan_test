@@ -1,4 +1,4 @@
-#include "EX_7.h"
+#include "EX_8.h"
 
 int main(){
   printf("executing challenge 1...\n");
@@ -11,8 +11,10 @@ int main(){
   challenge_4();
   printf("executing challenge 5...\n");
   challenge_5();
-  printf("executing challenge 7...\n");
-  challenge_7();
+  //printf("executing challenge 7...\n");
+  //challenge_7();
+  printf("executing challenge 8...\n");
+  challenge_8();
   return 0;
   
 }
