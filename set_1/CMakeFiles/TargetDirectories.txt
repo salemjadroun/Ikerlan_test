@@ -1,3 +1,0 @@
-/home/salim/Ikerlan_test/set_1/CMakeFiles/main.dir
-/home/salim/Ikerlan_test/set_1/CMakeFiles/edit_cache.dir
-/home/salim/Ikerlan_test/set_1/CMakeFiles/rebuild_cache.dir

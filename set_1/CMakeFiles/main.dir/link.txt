@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/main.dir/src/EX_1.c.o CMakeFiles/main.dir/src/EX_2.c.o CMakeFiles/main.dir/src/EX_3.c.o CMakeFiles/main.dir/src/EX_4.c.o CMakeFiles/main.dir/src/EX_5.c.o CMakeFiles/main.dir/src/main.c.o -o main 
