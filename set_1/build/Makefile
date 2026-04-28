@@ -249,6 +249,30 @@ src/EX_5.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/EX_5.c.s
 .PHONY : src/EX_5.c.s
 
+src/EX_6.o: src/EX_6.c.o
+.PHONY : src/EX_6.o
+
+# target to build an object file
+src/EX_6.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/EX_6.c.o
+.PHONY : src/EX_6.c.o
+
+src/EX_6.i: src/EX_6.c.i
+.PHONY : src/EX_6.i
+
+# target to preprocess a source file
+src/EX_6.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/EX_6.c.i
+.PHONY : src/EX_6.c.i
+
+src/EX_6.s: src/EX_6.c.s
+.PHONY : src/EX_6.s
+
+# target to generate assembly for a file
+src/EX_6.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/EX_6.c.s
+.PHONY : src/EX_6.c.s
+
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
@@ -297,6 +321,9 @@ help:
 	@echo "... src/EX_5.o"
 	@echo "... src/EX_5.i"
 	@echo "... src/EX_5.s"
+	@echo "... src/EX_6.o"
+	@echo "... src/EX_6.i"
+	@echo "... src/EX_6.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

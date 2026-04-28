@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/EX_4.c.o.d"
   "CMakeFiles/main.dir/src/EX_5.c.o"
   "CMakeFiles/main.dir/src/EX_5.c.o.d"
+  "CMakeFiles/main.dir/src/EX_6.c.o"
+  "CMakeFiles/main.dir/src/EX_6.c.o.d"
   "CMakeFiles/main.dir/src/main.c.o"
   "CMakeFiles/main.dir/src/main.c.o.d"
   "main"

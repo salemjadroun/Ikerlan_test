@@ -2,6 +2,47 @@
  
 //Global view of the implementation : hex --> bytes --> bin64
 
+
+// add base64_to_bytes function to be used in challenge 6 and 7
+uint8_t base64_char_to_val(char c)
+{
+    if (c >= 'A' && c <= 'Z') return c - 'A';
+    if (c >= 'a' && c <= 'z') return c - 'a' + 26;
+    if (c >= '0' && c <= '9') return c - '0' + 52;
+    if (c == '+') return 62;
+    if (c == '/') return 63;
+    return 0;
+}
+
+uint8_t *base64_to_bytes(const char *b64, size_t *out_len)
+{
+    size_t len = strlen(b64);
+    *out_len = len * 3 / 4; //4 chars = 3 bytes
+
+    //check for padding '=' characters
+    if (b64[len - 1] == '=') (*out_len)--;
+    if (b64[len - 2] == '=') (*out_len)--;
+
+    uint8_t *bytes = malloc(*out_len);
+
+    size_t j = 0; // index for the output byte array
+
+    for (size_t i = 0; i < len; i += 4) {
+        // Combine each four 6 bit into one 24 bit block
+        uint32_t combined = (base64_char_to_val(b64[i]) << 18) |
+                            (base64_char_to_val(b64[i + 1]) << 12) |
+                            (base64_char_to_val(b64[i + 2]) << 6) |
+                             base64_char_to_val(b64[i + 3]);
+
+        // Extract the 3 bytes from the 24 bit block and store them
+        if (j < *out_len) bytes[j++] = (combined >> 16) & 0xFF;
+        if (j < *out_len) bytes[j++] = (combined >> 8) & 0xFF;
+        if (j < *out_len) bytes[j++] = combined & 0xFF;
+    }
+    return bytes;
+}
+
+
 //a function help us to convert a hex char to his value
 uint8_t hex_char_to_val(char c)
 {

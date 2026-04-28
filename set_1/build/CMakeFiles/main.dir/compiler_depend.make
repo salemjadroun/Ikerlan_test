@@ -347,6 +347,7 @@ CMakeFiles/main.dir/src/main.c.o: /home/salim/Ikerlan_test/set_1/src/main.c \
   /home/salim/Ikerlan_test/set_1/include/EX_3.h \
   /home/salim/Ikerlan_test/set_1/include/EX_4.h \
   /home/salim/Ikerlan_test/set_1/include/EX_5.h \
+  /home/salim/Ikerlan_test/set_1/include/EX_6.h \
   /usr/include/alloca.h \
   /usr/include/endian.h \
   /usr/include/features-time64.h \
@@ -411,6 +412,8 @@ CMakeFiles/main.dir/src/main.c.o: /home/salim/Ikerlan_test/set_1/src/main.c \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
+
+/home/salim/Ikerlan_test/set_1/include/EX_6.h:
 
 /home/salim/Ikerlan_test/set_1/src/main.c:
 

@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/salim/Ikerlan_test/set_1/src/EX_3.c" "CMakeFiles/main.dir/src/EX_3.c.o" "gcc" "CMakeFiles/main.dir/src/EX_3.c.o.d"
   "/home/salim/Ikerlan_test/set_1/src/EX_4.c" "CMakeFiles/main.dir/src/EX_4.c.o" "gcc" "CMakeFiles/main.dir/src/EX_4.c.o.d"
   "/home/salim/Ikerlan_test/set_1/src/EX_5.c" "CMakeFiles/main.dir/src/EX_5.c.o" "gcc" "CMakeFiles/main.dir/src/EX_5.c.o.d"
+  "/home/salim/Ikerlan_test/set_1/src/EX_6.c" "CMakeFiles/main.dir/src/EX_6.c.o" "gcc" "CMakeFiles/main.dir/src/EX_6.c.o.d"
   "/home/salim/Ikerlan_test/set_1/src/main.c" "CMakeFiles/main.dir/src/main.c.o" "gcc" "CMakeFiles/main.dir/src/main.c.o.d"
   )
 
