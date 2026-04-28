@@ -16,7 +16,7 @@ int hamming_distance(uint8_t *a, uint8_t *b, size_t len) {
 
 int challenge_6() {
     // read file and strip newlines into one base64 string
-    FILE *fp = fopen("../docs/6.txt", "r");
+    FILE *fp = fopen(DOCS_DIR "/6.txt", "r");
     
 
 }

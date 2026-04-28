@@ -23,7 +23,7 @@ int count_repeats(uint8_t *data, size_t len)
 
 int challenge_8()
 {
-    FILE *fp = fopen("../docs/8.txt", "r");
+    FILE *fp = fopen(DOCS_DIR "/8.txt", "r");
     char line[512];
     while (fgets(line, sizeof(line), fp)) {
         line[strcspn(line, "\n")] = '\0';

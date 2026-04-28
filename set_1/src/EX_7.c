@@ -31,7 +31,7 @@ uint8_t *aes_128_ecb_decrypt(uint8_t *data, size_t len, uint8_t *key, int *out_l
 
 int challenge_7()
 {
-    FILE *fp = fopen("../docs/7.txt", "r");
+    FILE *fp = fopen(DOCS_DIR "/7.txt", "r");
     char b64[20000] = {0};
     char line[256];
     while (fgets(line, sizeof(line), fp)) {
