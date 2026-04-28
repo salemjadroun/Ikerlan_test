@@ -28,3 +28,26 @@ uint8_t *aes_128_ecb_decrypt(uint8_t *data, size_t len, uint8_t *key, int *out_l
     *out_len = tmp_len + final_len;
     return out;
 }
+
+int challenge_7()
+{
+    FILE *fp = fopen("../docs/7.txt", "r");
+    char b64[20000] = {0};
+    char line[256];
+    while (fgets(line, sizeof(line), fp)) {
+        line[strcspn(line, "\n")] = '\0';
+        strcat(b64, line);
+    }
+    fclose(fp);
+
+    size_t len;
+    uint8_t *data = base64_to_bytes(b64, &len);
+    int out_len;
+    uint8_t *decrypted = aes_128_ecb_decrypt(data, len, (uint8_t *)"YELLOW SUBMARINE", &out_len);
+
+    printf("%.*s\n", out_len, decrypted);
+
+    free(decrypted);
+    free(data);
+    return 0;
+}

@@ -8,3 +8,6 @@ file(GLOB HEADERS include/*.h)
 
 add_executable(main ${SOURCES} ${HEADERS})
 target_include_directories(main PRIVATE include)
+
+find_package(OpenSSL REQUIRED)
+target_link_libraries(main OpenSSL::Crypto)
