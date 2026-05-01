@@ -15,6 +15,7 @@ add_library(ikerlan_common STATIC
     set_1/src/EX_8.c
     set_2/src/EX_9.c
     set_2/src/EX_10.c
+    set_2/src/EX_11.c
 )
 target_include_directories(ikerlan_common PUBLIC set_1/include set_2/include)
 target_compile_definitions(ikerlan_common PRIVATE DOCS_DIR="${CMAKE_SOURCE_DIR}/docs")

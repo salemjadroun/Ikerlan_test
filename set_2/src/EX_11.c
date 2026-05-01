@@ -60,3 +60,20 @@ int detect_mode(uint8_t *ciphertext, size_t len)
     }
     return MODE_CBC;
 }
+
+int challenge_11()
+{
+    uint8_t input[48];
+    memset(input, 'A', 48);
+ 
+    int mode;
+    size_t ct_len;
+    uint8_t *ct = encryption_oracle(input, 48, &mode, &ct_len);
+    int guessed = detect_mode(ct, ct_len);
+    printf("guessed %s, actual %s\n",
+           guessed == MODE_ECB ? "ECB" : "CBC",
+           mode    == MODE_ECB ? "ECB" : "CBC");
+    free(ct);
+    return 0;
+}
+
