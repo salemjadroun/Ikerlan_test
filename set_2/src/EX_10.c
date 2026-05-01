@@ -78,20 +78,25 @@ int challenge_10()
     uint8_t *key = (uint8_t *)"YELLOW SUBMARINE";
     uint8_t iv[16] = {0};
  
-    // test : encryption
-    char *test = "CBC encryption test on a plaintext";
-    size_t enc_len, dec_len;
-    uint8_t *enc = aes_128_cbc_encrypt((uint8_t *)test, strlen(test), key, iv, &enc_len);
-    uint8_t *dec = aes_128_cbc_decrypt(enc, enc_len, key, iv, &dec_len);
-        
-        
-
-    printf("Encryption: %.*s\n", (int)enc_len, enc);
-    printf("Encryption in hex: ");
-    print_hex(enc, enc_len);
-    printf("Round-trip: %.*s\n", (int)dec_len, dec);
-    free(enc);
-    free(dec);
+    
+    // Decrypt 10.txt
+    FILE *fp = fopen(DOCS_DIR "/10.txt", "r");
+    char b64[20000] = {0};
+    char line[256];
+    while (fgets(line, sizeof(line), fp)) {
+        line[strcspn(line, "\n")] = '\0';
+        strcat(b64, line);
+    }
+    fclose(fp);
+ 
+    size_t data_len, plain_len;
+    uint8_t *data = base64_to_bytes(b64, &data_len);
+    uint8_t *plain = aes_128_cbc_decrypt(data, data_len, key, iv, &plain_len);
+    printf("%.*s\n", (int)plain_len, plain);
+ 
+    free(data);
+    free(plain);
+    return 0;
  
 }
 
