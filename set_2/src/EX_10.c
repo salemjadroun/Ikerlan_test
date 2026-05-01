@@ -46,6 +46,33 @@ uint8_t *aes_128_cbc_encrypt(uint8_t *plaintext, size_t len, uint8_t *key, uint8
     return out;
 }
 
+
+uint8_t *aes_128_cbc_decrypt(uint8_t *ciphertext, size_t len, uint8_t *key, uint8_t *iv, size_t *out_len)
+{
+    // ECB-decrypt the whole buffer, no padding
+    uint8_t *raw = malloc(len);
+    int tmp;
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    EVP_DecryptInit_ex(ctx, EVP_aes_128_ecb(), NULL, key, NULL);
+    EVP_CIPHER_CTX_set_padding(ctx, 0);
+    EVP_DecryptUpdate(ctx, raw, &tmp, ciphertext, len);
+    EVP_CIPHER_CTX_free(ctx);
+
+    // XOR each block with previous ciphertext block
+    uint8_t *out = malloc(len);
+    for (size_t i = 0; i < len; i += 16) {
+        uint8_t *prev = (i == 0) ? iv : ciphertext + i - 16;
+        for (int j = 0; j < 16; j++)
+            out[i + j] = raw[i + j] ^ prev[j];
+    }
+    free(raw);
+
+    uint8_t pad = out[len - 1]; // read pad length from the last byte
+    *out_len = len - pad;
+    return out;
+}
+
+
 int challenge_10()
 {
     uint8_t *key = (uint8_t *)"YELLOW SUBMARINE";
@@ -55,10 +82,18 @@ int challenge_10()
     char *test = "CBC encryption test on a plaintext";
     size_t enc_len, dec_len;
     uint8_t *enc = aes_128_cbc_encrypt((uint8_t *)test, strlen(test), key, iv, &enc_len);
+    uint8_t *dec = aes_128_cbc_decrypt(enc, enc_len, key, iv, &dec_len);
+        
+        
+
     printf("Encryption: %.*s\n", (int)enc_len, enc);
     printf("Encryption in hex: ");
     print_hex(enc, enc_len);
+    printf("Round-trip: %.*s\n", (int)dec_len, dec);
     free(enc);
+    free(dec);
  
 }
+
+
 
