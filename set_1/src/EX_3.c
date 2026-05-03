@@ -23,7 +23,7 @@ float english_score(uint8_t *bytes, size_t len)
 float best_single_xor(uint8_t *bytes, size_t len, uint8_t *best_key)
 {
     float best_score = 0.0;
-    for (uint8_t key = 0; key < 255; key++) {
+    for (int key = 0; key <= 255; key++) {
         uint8_t *xored = single_byte_xor(bytes, len, key);
         float score = english_score(xored, len);
         if (score > best_score) {

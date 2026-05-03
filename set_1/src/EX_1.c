@@ -42,7 +42,7 @@ uint8_t *base64_to_bytes(const char *b64, size_t *out_len)
     return bytes;
 }
 
-
+//Challenge 1 functions
 //a function help us to convert a hex char to his value
 uint8_t hex_char_to_val(char c)
 {
@@ -68,7 +68,7 @@ uint8_t *hex_to_bytes(char *hex, size_t *out_len)
 }
 
 //take raw bytes and return a base64 string
-char *bytes_to_base64(const uint8_t *bytes, size_t len)
+char *bytes_to_base64(uint8_t *bytes, size_t len)
 {
     const char *table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     //Every 3 bytes produce 4 base64 chars (8*3=6*4)
@@ -85,7 +85,7 @@ char *bytes_to_base64(const uint8_t *bytes, size_t len)
         uint32_t combined = (b0 << 16) | (b1 << 8) | b2;
  
         //extract the char aligned to each 6 bits from the table 
-        out[j++] = table[(combined >> 18) & 0x3F];
+        out[j++] = table[(combined >> 18) & 0x3F]; //(3F)16 = (00111111)2
         out[j++] = table[(combined >> 12) & 0x3F];
         out[j++] = (i + 1 < len) ? table[(combined >> 6) & 0x3F] : '=';
         out[j++] = (i + 2 < len) ? table[(combined >> 0) & 0x3F] : '=';
