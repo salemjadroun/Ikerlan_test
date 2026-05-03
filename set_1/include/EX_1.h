@@ -10,7 +10,7 @@
 
 uint8_t hex_char_to_val(char c);
 uint8_t *hex_to_bytes(char *hex, size_t *out_len);
-char *bytes_to_base64(const uint8_t *bytes, size_t len);
+char *bytes_to_base64(uint8_t *bytes, size_t len);
 uint8_t base64_char_to_val(char c);
 uint8_t *base64_to_bytes(const char *b64, size_t *out_len);
 

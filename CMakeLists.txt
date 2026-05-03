@@ -17,8 +17,9 @@ add_library(ikerlan_common STATIC
     set_2/src/EX_10.c
     set_2/src/EX_11.c
     set_2/src/EX_15.c
+    set_3/src/EX_18.c
 )
-target_include_directories(ikerlan_common PUBLIC set_1/include set_2/include)
+target_include_directories(ikerlan_common PUBLIC set_1/include set_2/include set_3/include)
 target_compile_definitions(ikerlan_common PRIVATE DOCS_DIR="${CMAKE_SOURCE_DIR}/docs")
 target_link_libraries(ikerlan_common PUBLIC OpenSSL::Crypto)
 
@@ -27,3 +28,6 @@ target_link_libraries(set_1 PRIVATE ikerlan_common)
 
 add_executable(set_2 set_2/src/main.c)
 target_link_libraries(set_2 PRIVATE ikerlan_common)
+
+add_executable(set_3 set_3/src/main.c)
+target_link_libraries(set_3 PRIVATE ikerlan_common)
