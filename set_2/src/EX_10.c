@@ -1,20 +1,20 @@
-
 #include "EX_10.h"
-
 // ECB encrypt counterpart of EX_7's decrypt, with PKCS#7 padding disabled (raw block transform)
+//we don t need here to do *out_len = tmp_len + final_len; , 
+// because we won t do the padding so the length of the out is the same data length
 uint8_t *aes_128_ecb_encrypt(uint8_t *data, size_t len, uint8_t *key, int *out_len)
 {
     uint8_t *out = malloc(len);
-    int tmp_len = 0, final_len = 0;
+    int tmp_len = 0;
     EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
     EVP_EncryptInit_ex(ctx, EVP_aes_128_ecb(), NULL, key, NULL);
     // we don t want openssl to pad here, this is just a raw 16 to 16 block transform,
     // padding is done once on the whole message in aes_128_cbc_encrypt
     EVP_CIPHER_CTX_set_padding(ctx, 0); 
     EVP_EncryptUpdate(ctx, out, &tmp_len, data, len);
-    EVP_EncryptFinal_ex(ctx, out + tmp_len, &final_len);
+    
     EVP_CIPHER_CTX_free(ctx);
-    *out_len = tmp_len + final_len;
+    *out_len = tmp_len ;
     return out;
 }
 
